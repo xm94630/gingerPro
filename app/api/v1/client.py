@@ -2,7 +2,8 @@ from flask import request
 
 from app.libs.enums import ClientTypeEnum
 from app.libs.redprint import Redprint
-from app.validators.forms import ClientForm
+from app.validators.forms import ClientForm, UserEmailForm
+from models.user import User
 
 api = Redprint('clinet')
 
@@ -30,6 +31,14 @@ def create_client():
         promise = {
             ClientTypeEnum.USER_EMIAL:__register_user_by_email
         }
+        promise[form.type.data]()
+
+    return 'success'
 
 
-    pass
+
+
+def __register_user_by_email():
+    form = UserEmailForm(data=request.json)
+    if form.validate():
+        User.register_by_email(form.nickname.data,form.account.data,form.secret.account.data)
