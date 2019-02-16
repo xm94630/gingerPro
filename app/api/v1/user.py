@@ -11,7 +11,7 @@ api = Redprint('user')
 def get_user():
     return '泰罗'
 
-@api.route('/create')
-def get_user():
-    return '新建用户'
-    pass
+# @api.route('/create')
+# def get_user():
+#     return '新建用户'
+#     pass

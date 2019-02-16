@@ -7,7 +7,7 @@ def register_blueprints(app):
 def register_plugin(app):
     from models.base import db
     db.init_app(app)  #插件注册
-    with app.app_conext(): #推入上下文环境
+    with app.app_context(): #推入上下文环境
         db.create_all()
 
 
