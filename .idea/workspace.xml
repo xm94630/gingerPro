@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d79a4cf-2577-46b7-96d1-b782a1e3ff5d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/api/v1/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/v1/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/validators/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/validators/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/secure.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/secure.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/api/v1/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="105">
+              <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -30,10 +29,19 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config/secure.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/validators/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="210">
               <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
@@ -77,6 +85,7 @@
         <option value="$PROJECT_DIR$/app/app.py" />
         <option value="$PROJECT_DIR$/app/validators/forms.py" />
         <option value="$PROJECT_DIR$/app/api/v1/client.py" />
+        <option value="$PROJECT_DIR$/app/config/secure.py" />
       </list>
     </option>
   </component>
@@ -118,6 +127,12 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="v1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gingerPro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gingerPro" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gingerPro" type="b2602c69:ProjectViewProjectNode" />
@@ -224,19 +239,20 @@
       <option name="presentableId" value="Default" />
       <updated>1548756763176</updated>
       <workItem from="1548756778312" duration="5008000" />
-      <workItem from="1550212203228" duration="8864000" />
+      <workItem from="1550212203228" duration="9118000" />
+      <workItem from="1550280548213" duration="107000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13872000" />
+    <option name="totallyTimeSpent" value="14233000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="361" y="23" width="919" height="714" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25541618" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.26111746" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.329582" />
@@ -276,9 +292,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/secure.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/setting.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -296,13 +309,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/libs/emums.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/libs/emums.py" />
     <entry file="file://$PROJECT_DIR$/app/libs/enums.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -364,9 +371,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/v1/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/validators/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="210">
           <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
@@ -374,13 +391,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/v1/client.py">
+    <entry file="file://$PROJECT_DIR$/app/config/secure.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="45">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
         </state>
       </provider>
     </entry>
