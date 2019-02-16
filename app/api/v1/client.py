@@ -29,16 +29,22 @@ def create_client():
     if form.validate():
         # 注意这里promise只是个字典而已
         promise = {
-            ClientTypeEnum.USER_EMIAL:__register_user_by_email
+            ClientTypeEnum.USER_EMAIL:__register_user_by_email
         }
         promise[form.type.data]()
 
-    return 'success'
-
+        print('成功啦')
+        return 'success'
+    else:
+        return '格式有问题哦，亲'
 
 
 
 def __register_user_by_email():
+    print ("准备写入数据库哦")
     form = UserEmailForm(data=request.json)
+    print(form)
+    print(form.validate())
     if form.validate():
-        User.register_by_email(form.nickname.data,form.account.data,form.secret.account.data)
+        print('数据格式验证成功！')
+        User.register_by_email(form.nickname.data,form.account.data,form.secret.data)

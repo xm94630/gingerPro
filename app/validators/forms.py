@@ -29,7 +29,7 @@ class UserEmailForm(ClientForm):
     secret = StringField(validators=[
         DataRequired(),
         # password can only include letters , numbers and "_"
-        Regexp(r'^[A-Za-z0-9_*&$#@]{6,22}$')
+        #Regexp(r'^[A-Za-z0-9_*&$#@]{6,22}$')
     ])
     nickname = StringField(validators=[DataRequired(),
                                        length(min=2, max=22)])
