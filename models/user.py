@@ -42,7 +42,7 @@ class User(Base):
 
         #可以该写成：
         # with open("/tmp/foo.txt")
-        #     as file:
+        #   as file:
         #     data = file.read()
 
 
