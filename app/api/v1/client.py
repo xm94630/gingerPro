@@ -25,7 +25,13 @@ def create_client():
     # request.args.to_dict()
 
     data = request.json
-    form = ClientForm(data=data)  #助理这里data=data的用法（这是针对request.json类型）
+
+    # 注意这里data=data的用法（这是针对request.json类型）
+    # 我这里特意查了下这种用法，这种叫做关键字参数用法
+    # 函数定义的时候，用**来表示这种特定的参数，如 def fun(a,b,**others):
+
+    form = ClientForm(data=data)
+
     if form.validate():
         # 注意这里promise只是个字典而已
         promise = {
