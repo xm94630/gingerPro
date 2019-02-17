@@ -39,7 +39,7 @@ def create_client():
         }
         promise[form.type.data]()
 
-        print('成功啦!!!')
+        print('成功啦 x')
         return 'success'
     else:
         return '格式有问题哦，亲!'
