@@ -31,6 +31,21 @@ class User(Base):
 
     @staticmethod
     def register_by_email(nickname, account, secret):
+
+        #xm:with语法用于上下文管理协议
+        #例如，我们原先这样子的写法
+        # file = open("/tmp/foo.txt")
+        # try:
+        #     data = file.read()
+        # finally:
+        #     file.close()
+
+        #可以该写成：
+        # with open("/tmp/foo.txt")
+        #     as file:
+        #     data = file.read()
+
+
         with db.auto_commit():
             user = User()
             user.nickname = nickname
