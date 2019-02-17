@@ -19,6 +19,7 @@ class SQLAlchemy(_SQLAlchemy):
     @contextmanager
     def auto_commit(self):
         try:
+            #xm:这里的yield，有机会再解释
             yield
             self.session.commit()
         except Exception as e:

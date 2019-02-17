@@ -11,6 +11,7 @@ class ClientForm(Form):
     secret  = StringField()
     type    = IntegerField()
 
+    #self类似于js中的this，只是js中直接用就行了
     def validate_type(self,value):
         try:
             client = ClientTypeEnum(value.data)
