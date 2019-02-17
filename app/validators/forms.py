@@ -11,6 +11,7 @@ class ClientForm(Form):
     secret  = StringField()
     type    = IntegerField()
 
+    #注意，这个函數會被自動調用，應該在父類中也有，這裡是做了覆蓋。
     #self类似于js中的this，只是js中直接用就行了
     def validate_type(self,value):
         try:

@@ -1,11 +1,5 @@
-"""
- Created by 七月 on 2018/5/12.
-"""
 from werkzeug.exceptions import HTTPException
-
 from app.libs.error import APIException
-
-__author__ = '七月'
 
 
 class Success(APIException):
@@ -24,6 +18,12 @@ class ServerError(APIException):
     msg = 'sorry, we made a mistake (*￣︶￣)!'
     error_code = 999
 
+#自定義的錯誤
+class XuMingError(HTTPException):
+    code = 400
+    description = (
+        '參數有錯誤哦'
+    )
 
 class ClientTypeError(APIException):
     # 400 401 403 404
