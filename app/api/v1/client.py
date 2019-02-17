@@ -39,10 +39,10 @@ def create_client():
         }
         promise[form.type.data]()
 
-        print('成功啦 x')
+        print('成功啦')
         return 'success'
     else:
-        return '格式有问题哦，亲!'
+        return '格式有问题哦，亲'
 
 
 
