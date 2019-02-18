@@ -31,7 +31,7 @@ def create_client():
     # 我这里特意查了下这种用法，这种叫做关键字参数用法
     # 函数定义的时候，用**来表示这种特定的参数，如 def fun(a,b,**others):
 
-    form = ClientForm(data=data)
+    form = ClientForm()
     form.validate_for_api()
 
     # 注意这里promise只是个字典而已
@@ -47,9 +47,7 @@ def create_client():
 
 def __register_user_by_email():
     print ("准备写入数据库哦")
-    form = UserEmailForm(data=request.json)
-    print(form)
-    print(form.validate())
-    if form.validate():
-        print('数据格式验证成功！')
-        User.register_by_email(form.nickname.data,form.account.data,form.secret.data)
+    form = UserEmailForm()
+    form.validate_for_api()
+    print('数据格式验证成功！')
+    User.register_by_email(form.nickname.data,form.account.data,form.secret.data)

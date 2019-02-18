@@ -7,10 +7,6 @@ from models.user import User
 #from wtforms import Form
 from app.validators.base import BaseForm as Form
 
-#from wtforms import Form
-#不需要原来wtforms的Form，使用新的，这里用as的作用，就是之后的代码不用去改变了，很方便
-from app.validators.base import BaseForm as Form
-
 class ClientForm(Form):
 
     account = StringField(validators=[DataRequired(),length(min=5,max=32)])
