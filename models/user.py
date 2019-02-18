@@ -53,13 +53,21 @@ class User(Base):
             user.password = secret
             db.session.add(user)
 
+    #验证
     @staticmethod
     def verify(email, password):
-        user = User.query.filter_by(email=email).first_or_404()
+        # user = User.query.filter_by(email=email).first_or_404()
+        # if not user.check_password(password):
+        #     raise AuthFailed()
+        # scope = 'AdminScope' if user.auth == 2 else 'UserScope'
+        # return {'uid': user.id, 'scope': scope}
+
+        user = User.query.filter_by(email=email).first()
+        if not user:
+            raise NotFound(msg="user not found")
         if not user.check_password(password):
             raise AuthFailed()
-        scope = 'AdminScope' if user.auth == 2 else 'UserScope'
-        return {'uid': user.id, 'scope': scope}
+        return {'uid': user.id}
 
     def check_password(self, raw):
         if not self._password:
