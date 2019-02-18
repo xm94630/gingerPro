@@ -18,6 +18,9 @@ class ServerError(APIException):
     msg = 'sorry, we made a mistake (*￣︶￣)!'
     error_code = 999
 
+
+
+
 #自定義的錯誤
 class XuMingError(HTTPException):
     code = 400
@@ -39,6 +42,12 @@ class ParameterException(APIException):
     code = 400
     msg = 'invalid parameter'
     error_code = 1000
+
+
+
+
+
+
 
 
 class NotFound(APIException):
