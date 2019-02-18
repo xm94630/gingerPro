@@ -39,6 +39,8 @@ def create_client():
     }
     promise[form.type.data]()
 
+    #這裡為什麼可以return這個呢，因為它本質上是一個HTTPException
+    #經驗：我們可以接受定義時候的複雜，但是不能接受調用的時候的複雜
     return Success()
 
 
