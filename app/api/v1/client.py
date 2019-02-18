@@ -1,7 +1,7 @@
 from flask import request
 
 from app.libs.enums import ClientTypeEnum
-from app.libs.error_code import ClientTypeError, XuMingError
+from app.libs.error_code import ClientTypeError, XuMingError,Success
 from app.libs.redprint import Redprint
 from app.validators.forms import ClientForm, UserEmailForm
 from models.user import User
@@ -31,8 +31,7 @@ def create_client():
     # 我这里特意查了下这种用法，这种叫做关键字参数用法
     # 函数定义的时候，用**来表示这种特定的参数，如 def fun(a,b,**others):
 
-    form = ClientForm()
-    form.validate_for_api()
+    form = ClientForm().validate_for_api()
 
     # 注意这里promise只是个字典而已
     promise = {
@@ -40,14 +39,12 @@ def create_client():
     }
     promise[form.type.data]()
 
-    print('成功啦')
-    return 'success'
+    return Success()
 
 
 
 def __register_user_by_email():
     print ("准备写入数据库哦")
-    form = UserEmailForm()
-    form.validate_for_api()
+    form = UserEmailForm().validate_for_api()
     print('数据格式验证成功！')
     User.register_by_email(form.nickname.data,form.account.data,form.secret.data)

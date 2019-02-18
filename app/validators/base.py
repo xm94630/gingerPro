@@ -22,3 +22,4 @@ class BaseForm(Form):
         if not valid:
             #验证错误的信息全部放在errors中
             raise ParameterException(msg=self.errors)
+        return self

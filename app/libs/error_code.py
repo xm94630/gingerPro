@@ -4,7 +4,7 @@ from app.libs.error import APIException
 
 class Success(APIException):
     code = 201
-    msg = 'ok'
+    msg = 'ok(哈哈)'
     error_code = 0
 
 
