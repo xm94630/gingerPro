@@ -1,4 +1,9 @@
-from flask_wtf import Form
+
+#坑人：我使用了快捷鍵，結果引入了錯誤的包！
+#from flask_wtf import Form
+from wtforms import Form
+
+
 
 #快速导入快捷键的方法
 # 1 鼠标停留到 form，使用快捷键 alt+enter

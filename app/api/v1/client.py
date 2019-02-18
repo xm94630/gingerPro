@@ -32,18 +32,17 @@ def create_client():
     # 函数定义的时候，用**来表示这种特定的参数，如 def fun(a,b,**others):
 
     form = ClientForm(data=data)
+    form.validate_for_api()
 
-    if form.validate():
-        # 注意这里promise只是个字典而已
-        promise = {
-            ClientTypeEnum.USER_EMAIL:__register_user_by_email
-        }
-        promise[form.type.data]()
+    # 注意这里promise只是个字典而已
+    promise = {
+        ClientTypeEnum.USER_EMAIL: __register_user_by_email
+    }
+    promise[form.type.data]()
 
-        print('成功啦')
-    else:
-        raise ClientTypeError()
-        return '格式有问题哦，亲'
+    print('成功啦')
+
+
     return 'success'
 
 

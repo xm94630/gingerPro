@@ -37,7 +37,7 @@ class ClientTypeError(APIException):
 
 class ParameterException(APIException):
     code = 400
-    msg = 'invalid parameter'
+    msg = 'invalid parameter(啦啦啦，有錯誤)'
     error_code = 1000
 
 
