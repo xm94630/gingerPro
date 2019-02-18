@@ -10,6 +10,7 @@ from wtforms import Form
 from app.libs.error_code import ParameterException
 
 
+
 class BaseForm(Form):
     def __init__(self,data):
         super(BaseForm,self).__init__(data=data)
