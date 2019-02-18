@@ -41,8 +41,6 @@ def create_client():
     promise[form.type.data]()
 
     print('成功啦')
-
-
     return 'success'
 
 
