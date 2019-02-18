@@ -1,7 +1,7 @@
 from flask import request
 
 from app.libs.enums import ClientTypeEnum
-from app.libs.error_code import XuMingError
+from app.libs.error_code import ClientTypeError, XuMingError
 from app.libs.redprint import Redprint
 from app.validators.forms import ClientForm, UserEmailForm
 from models.user import User
@@ -42,7 +42,7 @@ def create_client():
 
         print('成功啦')
     else:
-        raise XuMingError()
+        raise ClientTypeError()
         return '格式有问题哦，亲'
     return 'success'
 

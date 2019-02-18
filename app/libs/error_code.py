@@ -31,7 +31,7 @@ class ClientTypeError(APIException):
     # 200 201 204
     # 301 302
     code = 400
-    msg = 'client is invalid'
+    msg = 'client is invalid(注意啦)'
     error_code = 1006
 
 
