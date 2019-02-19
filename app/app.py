@@ -2,37 +2,15 @@
 from flask import Flask as _Flask
 from flask.json import JSONEncoder as _JSONEncoder
 
+from app.libs.error_code import ServerError
+
 
 class JSONEncoder(_JSONEncoder):
-    print('====???????????')
+    #这个函数是会被递归调用的，遇到不能序列化的层级的时候，都会再进来处理
     def default(self,o):
-        print('kkkkkkkkkkkkkkkk')
-        return dict(o)
-
+        if hasattr(o,'keys') and hasattr(o,'__getitem__'):
+            return dict(o)
+        raise ServerError()
 
 class Flask(_Flask):
-    print('===---->')
     json_encoder = JSONEncoder
-
-def register_blueprints(app):
-    from app.api.v1 import create_blueprint_v1
-    app.register_blueprint(create_blueprint_v1(),url_prefix='/v1')
-
-def register_plugin(app):
-    from models.base import db
-    db.init_app(app)  #插件注册
-    with app.app_context(): #推入上下文环境
-        db.create_all()
-
-
-def create_app():
-    app = Flask(__name__)
-    app.config.from_object('app.config.setting')
-    app.config.from_object('app.config.secure')
-    register_blueprints(app)
-    register_plugin(app)
-
-    print('xxx')
-
-    return app
-
