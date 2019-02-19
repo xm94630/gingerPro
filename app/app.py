@@ -1,4 +1,18 @@
-from flask import Flask
+
+from flask import Flask as _Flask
+from flask.json import JSONEncoder as _JSONEncoder
+
+
+class JSONEncoder(_JSONEncoder):
+    print('====???????????')
+    def default(self,o):
+        print('kkkkkkkkkkkkkkkk')
+        return dict(o)
+
+
+class Flask(_Flask):
+    print('===---->')
+    json_encoder = JSONEncoder
 
 def register_blueprints(app):
     from app.api.v1 import create_blueprint_v1
