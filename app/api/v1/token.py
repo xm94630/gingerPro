@@ -25,7 +25,10 @@ def get_token():
 
     #下一步就是生成令牌
     #令牌是需要加密的，会涉及到加密的算法，flask自带了一个 itsdangerous 库，方便我们去生成令牌
-    expiration = current_app.config['TOKEN_EXPIRATION'],
+
+
+    #expiration = current_app.config['TOKEN_EXPIRATION'],   #多了逗号坑人..返回就是元组了..
+    expiration = current_app.config['TOKEN_EXPIRATION']
     token = generate_auth_token(
         identify['uid'],
         form.type.data,
@@ -47,7 +50,7 @@ def generate_auth_token(uid,ac_type,scope=None,expiration=7200):
         expires_in= expiration              # 令牌有效期
     )
     #写入信息，最后生成的是一个字符串，就是我们的token令牌
-    return s.dump({
+    return s.dumps({
         'uid':uid,
         'type':ac_type.value
     })
