@@ -30,16 +30,19 @@ class QiYue:
         return getattr(self,item)
 
 
-@api.route('/<int:uid>')
+#管理员获取用户（可以是任何人的）
+@api.route('/<int:uid>',methods=['GET'])
 @auth.login_required
-def get_user(uid):
-    user = User.query.get_or_404(uid)
-    r = {
-        'nickname':user.nickname,
-        'email':user.email
-    }
-    #return jsonify(r)
-    #return jsonify(QiYue())
+def super_get_user(uid):
+    user = User.query.filter_by(id=uid).first_or_404()
+    return jsonify(user)
+
+#普通用户获取信息（自己的）
+@api.route('',methods=['GET'])
+@auth.login_required
+def get_user():
+    uid = g.user.uid
+    user = User.query.filter_by(id=uid).first_or_404()
     return jsonify(user)
 
 #为了防止超权，uid从g变量中获取
