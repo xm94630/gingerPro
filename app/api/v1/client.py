@@ -1,10 +1,10 @@
 from flask import request
 
 from app.libs.enums import ClientTypeEnum
-from app.libs.error_code import ClientTypeError, XuMingError,Success
+from app.libs.error_code import Success
 from app.libs.redprint import Redprint
 from app.validators.forms import ClientForm, UserEmailForm
-from models.user import User
+from app.models.user import User
 
 api = Redprint('clinet')
 

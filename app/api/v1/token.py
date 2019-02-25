@@ -1,10 +1,9 @@
 from flask import current_app, jsonify
 
-from app.config.setting import TOKEN_EXPIRATION
 from app.libs.enums import ClientTypeEnum
 from app.libs.redprint import Redprint
 from app.validators.forms import ClientForm
-from models.user import User
+from app.models.user import User
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 api = Redprint('token')

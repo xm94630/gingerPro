@@ -10,8 +10,8 @@ from app.libs.token_auth import auth
 # user = Blueprint('user',__name__)
 
 # redprint
-from models.base import db
-from models.user import User
+from app.models.base import db
+from app.models.user import User
 
 api = Redprint('user')
 

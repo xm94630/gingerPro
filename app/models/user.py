@@ -1,14 +1,13 @@
 #直接复制
 
-from sqlalchemy import inspect, Column, Integer, String, SmallInteger, orm
+from sqlalchemy import Column, Integer, String, SmallInteger
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app.libs.error_code import NotFound, AuthFailed
 
 
 #from app.models.base import Base, db, MixinJSONSerializer
-from models.base import Base, db, MixinJSONSerializer
-import datetime
+from app.models.base import Base, db
 
 
 class User(Base):
