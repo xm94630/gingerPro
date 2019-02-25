@@ -17,7 +17,7 @@ def get_token():
     }
 
     #验证身份通过，也成功拿到用户的id
-    identify = promise[ClientTypeEnum(form.type.data)](
+    identity = promise[ClientTypeEnum(form.type.data)](
         form.account.data,
         form.secret.data
     )
@@ -29,9 +29,9 @@ def get_token():
     #expiration = current_app.config['TOKEN_EXPIRATION'],   #多了逗号坑人..返回就是元组了..
     expiration = current_app.config['TOKEN_EXPIRATION']
     token = generate_auth_token(
-        identify['uid'],
+        identity['uid'],
         form.type.data,
-        None,
+        identity['is_admin'],
         expiration
     )
 
@@ -42,7 +42,7 @@ def get_token():
 
 
 #令牌除了加密，还要写入用户的信息：用户id、客户端种类、权限作用域（暂时不用），过期时间
-def generate_auth_token(uid,ac_type,scope=None,expiration=7200):
+def generate_auth_token(uid,ac_type,is_admin=None,expiration=7200):
     #生成令牌
     s = Serializer(
         current_app.config['SECRET_KEY'],   # 只有 SECRET_KEY 才能解开令牌
@@ -51,6 +51,7 @@ def generate_auth_token(uid,ac_type,scope=None,expiration=7200):
     #写入信息，最后生成的是一个字符串，就是我们的token令牌
     return s.dumps({
         'uid':uid,
-        'type':ac_type.value
+        'type':ac_type.value,
+        'is_admin':is_admin
     })
 

@@ -9,7 +9,7 @@ from app.libs.error_code import AuthFailed
 auth = HTTPBasicAuth()
 
 #这种类型的，类似list，值不能被改变，还用通过名字访问
-User = namedtuple('User',['uid','ac_type','scope'])
+User = namedtuple('User',['uid','ac_type','is_admin'])
 
 @auth.verify_password
 def verify_password(token,password):
@@ -37,5 +37,6 @@ def verify_auth_token(token):
 
     uid = data['uid']
     ac_type = data['type']
+    is_admin = data['is_admin']
 
-    return User(uid,ac_type,'')
+    return User(uid,ac_type,is_admin)

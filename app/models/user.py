@@ -66,7 +66,13 @@ class User(Base):
             raise NotFound(msg="user not found")
         if not user.check_password(password):
             raise AuthFailed()
-        return {'uid': user.id}
+        is_admin = True if user.auth ==2 else False
+        print('--------->user.auth')
+        print(user.auth)
+        print('--------->is_admin')
+        print(is_admin)
+
+        return {'uid': user.id,'is_admin':is_admin}
 
     def check_password(self, raw):
         if not self._password:
