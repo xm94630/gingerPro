@@ -66,13 +66,14 @@ class User(Base):
             raise NotFound(msg="user not found")
         if not user.check_password(password):
             raise AuthFailed()
-        is_admin = True if user.auth ==2 else False
+
+        scope = 'AdminScope' if user.auth ==2 else 'UserScope'
         print('--------->user.auth')
         print(user.auth)
-        print('--------->is_admin')
-        print(is_admin)
+        print('--------->scope')
+        print(scope)
 
-        return {'uid': user.id,'is_admin':is_admin}
+        return {'uid': user.id,'scope':scope}
 
     def check_password(self, raw):
         if not self._password:

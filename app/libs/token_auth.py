@@ -1,15 +1,16 @@
 from collections import namedtuple
 
-from flask import current_app,g
+from flask import current_app, g, request
 from flask_httpauth import HTTPBasicAuth
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, BadSignature, SignatureExpired
 
-from app.libs.error_code import AuthFailed
+from app.libs.error_code import AuthFailed,Forbidden
+from app.libs.scope import is_in_scope
 
 auth = HTTPBasicAuth()
 
 #这种类型的，类似list，值不能被改变，还用通过名字访问
-User = namedtuple('User',['uid','ac_type','is_admin'])
+User = namedtuple('User',['uid','ac_type','scope'])
 
 @auth.verify_password
 def verify_password(token,password):
@@ -37,6 +38,12 @@ def verify_auth_token(token):
 
     uid = data['uid']
     ac_type = data['type']
-    is_admin = data['is_admin']
+    scope = data['scope']
 
-    return User(uid,ac_type,is_admin)
+    #这里我们还可以访问到我们的视图函数(在 request)
+    allow = is_in_scope(scope,request.endpoint)
+    if not allow:
+        raise Forbidden()
+
+
+    return User(uid,ac_type,scope)

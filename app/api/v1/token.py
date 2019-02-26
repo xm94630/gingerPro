@@ -31,7 +31,7 @@ def get_token():
     token = generate_auth_token(
         identity['uid'],
         form.type.data,
-        identity['is_admin'],
+        identity['scope'],
         expiration
     )
 
@@ -42,7 +42,7 @@ def get_token():
 
 
 #令牌除了加密，还要写入用户的信息：用户id、客户端种类、权限作用域（暂时不用），过期时间
-def generate_auth_token(uid,ac_type,is_admin=None,expiration=7200):
+def generate_auth_token(uid,ac_type,scope=None,expiration=7200):
     #生成令牌
     s = Serializer(
         current_app.config['SECRET_KEY'],   # 只有 SECRET_KEY 才能解开令牌
@@ -52,6 +52,6 @@ def generate_auth_token(uid,ac_type,is_admin=None,expiration=7200):
     return s.dumps({
         'uid':uid,
         'type':ac_type.value,
-        'is_admin':is_admin
+        'scope':scope
     })
 
