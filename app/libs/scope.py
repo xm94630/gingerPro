@@ -6,36 +6,36 @@ class Scope:
     #运算符重置，__add__是内置的方法。相当于都"+"号做了新的定义
     def __add__(self,other):
         self.allow_api = self.allow_api + other.allow_api
-        # set 定义集合元素，不重复，相当于去重
-        self.allow_api = list(set(self.allow_api))
+        self.allow_api = list(set(self.allow_api))          # set 定义集合元素，不重复，相当于去重
+        self.allow_module = self.allow_module + other.allow_module
+        self.allow_module = list(set(self.allow_module))
         return self
 
 
 class AdminScope(Scope):
-    #allow_api=['v1.super_get_user']
-    allow_api=[]
+    allow_api=['v1.super_get_user','v1.super_delete_user']
     allow_module = ['v1.user']
     def __init__(self,):
         #self.add(UserScope())
-        #self+UserScope()
+        self+UserScope()
         print('==1')
         print(self.allow_api)
 
 class UserScope(Scope):
-    allow_api=['v1.get_user']
+    allow_api=['v1.user+get_user','v1.user+delete_user']
+    allow_module = []
 
-class SuperScope(Scope):
-    allow_api =['v1.xxxxxxx']
-    allow_module = ['v1.user']
+# class SuperScope(Scope):
+#     allow_api =['v1.xxxxxxx']
+#     allow_module = ['v1.user']
+#
+#     def __init__(self,):
+#         #self.add(UserScope()).add(AdminScope())
+#         self+UserScope()+AdminScope()
+#         print('==2')
+#         print(self.allow_api)
 
-    def __init__(self,):
-        #self.add(UserScope()).add(AdminScope())
-        self+UserScope()+AdminScope()
-        print('==2')
-        print(self.allow_api)
 
-SuperScope()
-AdminScope()
 
 
 def is_in_scope(scope, endpoint):
