@@ -1,9 +1,36 @@
-class AdminScope:
-    allow_api=['v1.super_get_user','v1.get_user']
+class Scope:
+    # def add(self,other):
+    #     self.allow_api = self.allow_api + other.allow_api
+    #     return self
+
+    #运算符重置，__add__是内置的方法。相当于都"+"号做了新的定义
+    def __add__(self,other):
+        self.allow_api = self.allow_api + other.allow_api
+        return self
 
 
-class UserScope:
+class AdminScope(Scope):
+    allow_api=['v1.super_get_user']
+    def __init__(self,):
+        #self.add(UserScope())
+        self+UserScope()
+        print('==1')
+        print(self.allow_api)
+
+class UserScope(Scope):
     allow_api=['v1.get_user']
+
+class SuperScope(Scope):
+    allow_api =['v1.xxxxxxx']
+    def __init__(self,):
+        #self.add(UserScope()).add(AdminScope())
+        self+UserScope()+AdminScope()
+        print('==2')
+        print(self.allow_api)
+
+SuperScope()
+AdminScope()
+
 
 def is_in_scope(scope, endpoint):
 
